@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-This module provides a function add_integer(a, b).
-The function adds two integers or floats together after
-casting them to integers.
+This module provides a function that adds two integers.
+The function ensures that arguments are either integers or floats.
 """
 
 
@@ -11,11 +10,11 @@ def add_integer(a, b=98):
     Adds two integers.
 
     Args:
-        a: first integer
-        b: second integer, defaults to 98
+        a: first number
+        b: second number (default 98)
 
     Returns:
-        The sum of a and b
+        The sum of a and b as an integer
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
