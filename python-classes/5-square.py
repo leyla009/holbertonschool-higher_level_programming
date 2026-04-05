@@ -1,30 +1,26 @@
 #!/usr/bin/python3
-"""Module that defines a Square class with a printing method."""
+"""Module that defines a Square class."""
 
 
 class Square:
-    """A class that defines a square and can print its visual representation."""
+    """A class that defines a square by its size."""
 
     def __init__(self, size=0):
-        """Initializes the square.
+        """Initializes the square with an optional size.
 
         Args:
-            size (int): The length of a side of the square. Defaults to 0.
+            size (int): The length of a side of the square.
         """
         self.size = size
 
     @property
     def size(self):
-        """Retrieves the size of the square.
-
-        Returns:
-            int: The size of the square.
-        """
+        """Property getter for the size of the square."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Sets the size of the square with validation.
+        """Property setter for the size of the square.
 
         Args:
             value (int): The new size of the square.
@@ -40,18 +36,11 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Calculates the current square area.
-
-        Returns:
-            int: The area of the square.
-        """
+        """Returns the current square area."""
         return self.__size ** 2
 
     def my_print(self):
-        """Prints the square with the character # to stdout.
-        
-        If size is 0, prints an empty line.
-        """
+        """Prints the square with the # character to stdout."""
         if self.__size == 0:
             print("")
             return
