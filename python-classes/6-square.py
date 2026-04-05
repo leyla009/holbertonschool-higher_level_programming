@@ -6,12 +6,7 @@ class Square:
     """A class that defines a square by its size and position."""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Initializes the square.
-
-        Args:
-            size (int): The length of a side of the square.
-            position (tuple): Two positive integers representing coordinates.
-        """
+        """Initializes the square."""
         self.size = size
         self.position = position
 
@@ -32,15 +27,11 @@ class Square:
     @property
     def position(self):
         """Retrieves the position of the square."""
-        return self.__size
+        return self.__position  # Corrected reference
 
     @position.setter
     def position(self, value):
-        """Sets the position of the square with validation.
-
-        Args:
-            value (tuple): A tuple of 2 positive integers.
-        """
+        """Sets the position of the square with validation."""
         if (not isinstance(value, tuple) or
                 len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
@@ -58,9 +49,6 @@ class Square:
             print("")
             return
 
-        # Handle vertical offset (y-coordinate)
         [print("") for i in range(self.__position[1])]
-
-        # Handle horizontal offset (x-coordinate) and print square
         for i in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
