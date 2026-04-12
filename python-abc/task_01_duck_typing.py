@@ -33,11 +33,11 @@ class Circle(Shape):
 
     def area(self):
         """Returns the area of the circle: pi * r^2"""
-        return math.pi * (self.radius ** 2)
+        return math.pi * (abs(self.radius) ** 2)
 
     def perimeter(self):
-        """Returns the perimeter of the circle: 2 * pi * r"""
-        return 2 * math.pi * self.radius
+        """Returns the perimeter of the circle: 2 * pi * abs(r)"""
+        return 2 * math.pi * abs(self.radius)
 
 
 class Rectangle(Shape):
@@ -52,17 +52,16 @@ class Rectangle(Shape):
 
     def area(self):
         """Returns the area of the rectangle: width * height"""
-        return self.width * self.height
+        return abs(self.width) * abs(self.height)
 
     def perimeter(self):
-        """Returns the perimeter of the rectangle: 2 * (width + height)"""
-        return 2 * (self.width + self.height)
+        """Returns the perimeter of the rectangle: 2 * (w + h)"""
+        return 2 * (abs(self.width) + abs(self.height))
 
 
 def shape_info(shape):
     """
     Standalone function that uses Duck Typing to print shape information.
-    It calls area() and perimeter() without checking the object's type.
     """
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
