@@ -1,67 +1,57 @@
 #!/usr/bin/python3
-"""
-Module for Shape abstract class and its subclasses Circle and Rectangle.
-"""
+"""This module contains an abstract base class Shape and its subclasses."""
 from abc import ABC, abstractmethod
-import math
+import math as m
 
 
 class Shape(ABC):
-    """
-    Abstract class Shape that defines the blueprint for geometric shapes.
-    """
+    """Abstract class Shape."""
 
     @abstractmethod
     def area(self):
-        """Calculates the area of the shape."""
+        """Calculate area."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculates the perimeter of the shape."""
+        """Calculate perimeter."""
         pass
 
 
 class Circle(Shape):
-    """
-    Concrete class Circle that inherits from Shape.
-    """
+    """Class representing a circle."""
 
     def __init__(self, radius):
-        """Initializes Circle with a radius."""
-        self.radius = radius
+        """Initialize circle with radius."""
+        self.radius = abs(radius)
 
     def area(self):
-        """Returns the area of the circle: pi * r^2"""
-        return math.pi * (abs(self.radius) ** 2)
+        """Return area of the circle."""
+        return m.pi * (self.radius ** 2)
 
     def perimeter(self):
-        """Returns the perimeter of the circle: 2 * pi * abs(r)"""
-        return 2 * math.pi * abs(self.radius)
+        """Return perimeter of the circle."""
+        return 2 * m.pi * self.radius
 
 
 class Rectangle(Shape):
-    """
-    Concrete class Rectangle that inherits from Shape.
-    """
+    """Class representing a rectangle."""
 
     def __init__(self, width, height):
-        """Initializes Rectangle with width and height."""
+        """Initialize rectangle with width and height."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Returns the area of the rectangle: width * height"""
-        return abs(self.width) * abs(self.height)
+        """Return area of the rectangle."""
+        return self.width * self.height
 
     def perimeter(self):
-        """Returns the perimeter of the rectangle: 2 * (w + h)"""
-        return 2 * (abs(self.width) + abs(self.height))
+        """Return perimeter of the rectangle."""
+        return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """
-    Standalone function that uses Duck Typing to print shape information.
-    """
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    """Print area and perimeter of a shape."""
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
