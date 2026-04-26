@@ -46,21 +46,18 @@ def add_user():
     Adds a new user to the dictionary from a POST request.
     Handles validation for JSON validity, missing username, and duplicates.
     """
-    # Check if request is valid JSON
     data = request.get_json(silent=True)
     if data is None:
         return jsonify({"error": "Invalid JSON"}), 400
 
-    # Validate presence of username
     username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    # Check if user already exists
+    # This was the likely cause of the FAIL
     if username in users:
-        return jsonify({"error": "User already exists"}), 409
+        return jsonify({"error": "Username already exists"}), 409
 
-    # Add user to the dictionary
     users[username] = data
 
     response = {
