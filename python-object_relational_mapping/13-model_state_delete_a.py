@@ -31,7 +31,9 @@ def delete_states_with_a():
     session = Session()
 
     # Query all states containing 'a'
-    states_to_delete = session.query(State).filter(State.name.like('%a%')).all()
+    # Broken into two lines to stay under 80 characters
+    states_to_delete = session.query(State).filter(
+        State.name.like('%a%')).all()
 
     # Iterate through the list and delete each object from the session
     for state in states_to_delete:
